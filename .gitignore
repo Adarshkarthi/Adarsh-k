@@ -1,3 +1,8 @@
-.vs/ 
-bin/ 
-obj/ 
+# Local directories to ignore
+.vs/
+bin/
+obj/
+
+# Google App Engine generated folder
+appengine-generated/
+
