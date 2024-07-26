@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EmployeeManagement.ViewModels.TaskViewModel>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Tasks</h1>
+
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Title)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Completed)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().duedate)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>
+                            @if (item.Completed)
+                            {
+                                <span class="badge badge-success">Completed</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-warning">Incomplete</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.duedate.HasValue)
+                            {
+                                @item.duedate.Value.ToString("yyyy-MM-dd")
+                            }
+                            else
+                            {
+                                @:N/A
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                            <form asp-action="Complete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-success btn-sm">Complete</button>
+                            </form>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="mt-3">
+            <a asp-action="Create" class="btn btn-primary">Create New Task</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

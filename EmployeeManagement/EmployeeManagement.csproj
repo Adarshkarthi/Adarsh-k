@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BCrypt.Net" Version="0.1.0" />
+		<PackageReference Include="EntityFramework" Version="6.5.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<!--<ItemGroup>
+		<Compile Include="Models\Employee.cs" />
+		<Compile Include="Models\Experience.cs" />
+		<Compile Include="Models\User.cs" />
+		<Compile Include="Models\LoginViewModel.cs" />
+		<Compile Include="Models\ErrorViewModel.cs" />
+		<Compile Include="Data\ApplicationDbContext.cs" />
+		<Compile Include="Data\EmployeeRepository.cs" />
+		<Compile Include="Controllers\AccountController.cs" />
+		<Compile Include="Controllers\EmployeeController.cs" />
+		--><!-- Add other files as needed --><!--
+	</ItemGroup>-->
+
+</Project>
